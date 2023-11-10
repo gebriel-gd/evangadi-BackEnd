@@ -9,7 +9,7 @@ const answerRouter = require("./server/api/answers/answer.router");
 const app = express();
 const port = process.env.PORT;
 
-// app.use(cors());
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -17,14 +17,14 @@ app.use("/api/users", userRouter);
 app.use("/api/users", questionRouter);
 app.use("/api/users", answerRouter);
 
-const corsOptions = {
-  origin: "http://localhost:3000",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true,
-  optionsSuccessStatus: 204,
-};
+// const corsOptions = {
+//   origin: "http://localhost:3000",
+//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//   credentials: true,
+//   optionsSuccessStatus: 204,
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 app.listen(port, () => console.log(`Listening at http://localhost:${port}`));
 
